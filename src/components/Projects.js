@@ -1,35 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
 import { motion } from "framer-motion";
-import {projects} from "./constants";
+import {projects, variants} from "./constants";
 import styles, { layout } from "../style";
 
 const ProjectTable = () => {
   const projectItem = projects.map(project =>
     <ProjectDisplay project={project} />
   )
-
-  const inView = {
-    opacity: 1,
-    y: 0,
-    transition: {
-      y: { type: "spring", stiffness: 100 },
-      duration: 0.8,
-      delay: .2
-    }
-  }
-
-  const outView = {
-    opacity: 0,
-    y: -30
-  }
-
   return (
     <section id={"projects"}>
       <motion.div
-        initial={outView}
-        whileInView={inView}
-        exit={{ opacity: 0 }}>
+        variants={variants["down"]}
+        initial=outView
+        whileInView=inView}>
         <h2 className={`${styles.heading2} flex flex-1`}>Projects</h2>
       </motion.div>
       <div className="sm:py-32 py-16">
@@ -42,27 +26,13 @@ const ProjectTable = () => {
 }
 
 const ProjectDisplay = ({project}) => {
-
-  const inView = {
-    opacity: 1,
-    x: 0,
-  transition: {
-    x: { type: "spring", stiffness: 100 },
-    duration: 0.8,
-    delay: .2
-    }
-  }
-  const outView = {
-    opacity: 0,
-    x: -50
-  }
-
   return (
     <li>
       <figure>
         <motion.div
-          initial={outView}
-          whileInView={inView}>
+          variants={variants["right"]}
+          initial="outView"
+          whileInView="inView">
           <div className={layout.section}>
             <div className={layout.sectionImg}>
               <img className="rounded-xl w-[500px] shadow relative"

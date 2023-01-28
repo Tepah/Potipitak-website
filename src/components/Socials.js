@@ -11,19 +11,8 @@ const Socials = () => {
         className={`w-[60px] invert`}
         src={socialItem.src}
         alt={socialItem.name}
-        initial={{
-          opacity: 0,
-          y: -50
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            y: { type: "spring", stiffness: 100 },
-            duration: 0.8,
-            delay: .2
-          }
-        }}
+        initial=
+        whileInView="inView"
       />
     </a>
   )
