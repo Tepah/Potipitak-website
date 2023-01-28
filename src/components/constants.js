@@ -79,7 +79,8 @@ export const variants = {
       opacity: 1,
       y: 0,
       transition: {
-        y: {type: "spring", stiffness: 100}
+        y: {type: "spring", stiffness: 100},
+        duration: 0.8
       }
     },
     outView: {
@@ -87,19 +88,58 @@ export const variants = {
       y: -30
     }
   },
-  right:
-    {
-      inView: {
-        opacity: 1,
-        x: 0,
-        transition: {
-          x: {type: "spring", stiffness: 100},
-          duration: 0.8,
-        }
-      },
-      outView: {
-        opacity: 0,
-        x: -50
+  fastDown: {
+    inView: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        y: {type: "spring", stiffness: 100},
+        duration: 0.7,
       }
+    },
+    outView: {
+      opacity: 0,
+      y: -50
     }
+  },
+  right: {
+    inView: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        x: {type: "spring", stiffness: 100},
+        duration: 0.7,
+      }
+    },
+    outView: {
+      opacity: 0,
+      x: -50
+    }
+  },
+  left: {
+    inView: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        x: { type: "spring", stiffness: 100 },
+        duration: 0.7
+      }
+    },
+    outView: {
+      opacity: 0,
+      x: 50
+    }
+  },
+  fade: {
+    inView: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6
+      }
+    },
+    outView: {
+      opacity: 0
+    }
+  }
 }

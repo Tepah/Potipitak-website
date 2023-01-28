@@ -1,6 +1,7 @@
 import { Hero, ProjectTable, ExperienceTable, AboutMe, Navbar, Socials } from './components';
 import { motion } from "framer-motion";
 import styles from'./style';
+import {variants} from "./components/constants";
 
 const App = () => {
   return(
@@ -14,14 +15,9 @@ const App = () => {
 
 
         <motion.div
-          initial={{opacity: 0}}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: {
-              delay: .2
-              }
-          }}>
+          variants={variants["fade"]}
+          initial="outView"
+          whileInView="inView">
             <Hero />
           </motion.div>
         <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>

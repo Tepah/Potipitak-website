@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import {motion} from "framer-motion";
-import {socialLinks} from "./constants";
+import {socialLinks, variants} from "./constants";
 import styles, {layout} from "../style";
 
 const Socials = () => {
@@ -11,32 +11,19 @@ const Socials = () => {
         className={`w-[60px] invert`}
         src={socialItem.src}
         alt={socialItem.name}
-        initial=
+        variants={variants["fastDown"]}
+        initial="outView"
         whileInView="inView"
       />
     </a>
   )
-
-  const inView = {
-    opacity: 1,
-    y: 0,
-    transition: {
-      y: { type: "spring", stiffness: 100 },
-      duration: 0.8,
-      delay: .2
-    }
-  }
-  const outView = {
-    opacity: 0,
-    y: -30
-  }
-
   return (
     <section id="socials" className={`${styles.paddingY}`}>
       <motion.h2
         className={`${styles.heading2}  flex flex-1`}
-        initial={outView}
-        whileInView={inView}
+        variants={variants["down"]}
+        initial="outView"
+        whileInView="inView"
       >
         Socials
       </motion.h2>

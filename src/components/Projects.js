@@ -12,8 +12,8 @@ const ProjectTable = () => {
     <section id={"projects"}>
       <motion.div
         variants={variants["down"]}
-        initial=outView
-        whileInView=inView}>
+        initial="outView"
+        whileInView="inView">
         <h2 className={`${styles.heading2} flex flex-1`}>Projects</h2>
       </motion.div>
       <div className="sm:py-32 py-16">

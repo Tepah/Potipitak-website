@@ -1,5 +1,5 @@
 import React from 'react';
-import {experience} from "./constants";
+import {experience, variants} from "./constants";
 import { motion } from "framer-motion";
 import styles, { layout } from "../style";
 
@@ -8,26 +8,12 @@ const ExperienceTable = () => {
   const experienceItem = experience.map(job =>
     <ExperinceDisplay job={job} />
   )
-
-  const inView = {
-    opacity: 1,
-    y: 0,
-    transition: {
-      y: { type: "spring", stiffness: 100 },
-      duration: 0.8,
-      delay: .2
-    }
-  }
-  const outView = {
-    opacity: 0,
-    y: -30
-  }
-
   return (
     <div id="experience">
       <motion.div
-        initial={outView}
-        whileInView={inView}
+        variants={variants["down"]}
+        initial="outView"
+        whileInView="inView"
       >
         <h2 className={`${styles.heading2} flex flex-1`}>Experience</h2>
       </motion.div>
@@ -39,25 +25,12 @@ const ExperienceTable = () => {
 }
 
 const ExperinceDisplay = ({job}) => {
-
-  const inView = {
-    opacity: 1,
-    x: 0,
-    transition: {
-      x: { type: "spring", stiffness: 100 },
-      duration: 0.8,
-      delay: .2
-    }
-  }
-  const outView = {
-    opacity: 0,
-    x: 50
-  }
-
   return (
-    <motion.section className={layout.sectionReverse}
-        initial={outView}
-        whileInView={inView}
+    <motion.section
+        className={layout.sectionReverse}
+        variants={variants["left"]}
+        initial="outView"
+        whileInView="inView"
     >
       <div className={layout.sectionInfo}>
         <h5 className={`font-poppins font-semibold xs:text-[30px] text-[20px] text-white xs:leading-[76.8px] 

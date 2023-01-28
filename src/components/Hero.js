@@ -3,17 +3,6 @@ import { motion } from "framer-motion";
 import styles from "../style";
 
 const Hero = () => {
-  const outView = {
-    opacity: 0
-  }
-
-  const inView = {
-    opacity: 1,
-    transition: {
-      delay: 0.2
-    }
-  }
-
   return (
     <div className={`bg-primary ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
